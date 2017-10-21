@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BattleController : MonoBehaviour {
+public class BattleControllerLocal : MonoBehaviour {
 
     public Text statusText;
     public Text player1Text;
