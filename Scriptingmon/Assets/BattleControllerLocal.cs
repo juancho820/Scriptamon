@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class BattleControllerLocal : MonoBehaviour {
 
     public Text statusText;
-    public Text player1Text;
-    public Text player2Text;
+    //public Text player1Text;
+    //public Text player2Text;
+    public Slider hp;
+    public Slider hp2;
 
     int player1Health = 100;
     int player2Health = 100;
@@ -59,13 +61,21 @@ public class BattleControllerLocal : MonoBehaviour {
 
     void CurarsePlayer1()
     {
-        int Pocion = Random.Range(6, 15);
+        int Pocion = Random.Range(8, 20);
         player1Health += Pocion;
+        if (player1Health > 100)
+        {
+            player1Health = 100;
+        }
     }
     void CurarsePlayer2()
     {
-        int Pocion = Random.Range(6, 15);
+        int Pocion = Random.Range(8, 20);
         player2Health += Pocion;
+        if (player2Health > 100)
+        {
+            player2Health = 100;
+        }
     }
 
     public void Player2Fight()
@@ -91,8 +101,10 @@ public class BattleControllerLocal : MonoBehaviour {
 
     void SwitchPlayer()
     {
-        player1Text.text = "Health: " + player1Health;
-        player2Text.text = "Health: " + player2Health;
+        hp.value = player1Health;
+        hp2.value = player2Health;
+        //player1Text.text = "Health: " + player1Health;
+        //player2Text.text = "Health: " + player2Health;
         player1Turn = !player1Turn;
 
         if (player1Turn)

@@ -7,8 +7,11 @@ public class BattleControllerSingle : MonoBehaviour {
 
     public Text statusText;
     public Text moveText;
-    public Text player1Text;
-    public Text player2Text;
+    //public Text player1Text;
+    //public Text player2Text;
+    public Slider hp;
+    public Slider hp2;
+    
 
     int player1Health = 100;
     int player2Health = 100;
@@ -98,27 +101,38 @@ public class BattleControllerSingle : MonoBehaviour {
         {
             //win state
             player1Health = 0;
+
         }
     }
 
     void CurarsePlayer1()
     {
         moveText.text = "Player 1 Se curó";
-        int Pocion = Random.Range(6, 15);
+        int Pocion = Random.Range(8, 20);
         player1Health += Pocion;
         StartCoroutine(Player2Turn());
+        if (player1Health > 100)
+        {
+            player1Health = 100;
+        }
     }
     void CurarsePlayer2()
     {
         moveText.text = "Player 2 Se curó";
-        int Pocion = Random.Range(6, 15);
+        int Pocion = Random.Range(8, 20);
         player2Health += Pocion;
+        if (player2Health > 100)
+        {
+            player2Health = 100;
+        }
     }
 
     void SwitchPlayer()
     {
-        player1Text.text = "Health: " + player1Health;
-        player2Text.text = "Health: " + player2Health;
+        hp.value = player1Health;
+        hp2.value = player2Health;
+        //player1Text.text = ""+ player1Health;
+        //player2Text.text = ""+ player2Health;
         player1Turn = !player1Turn;
 
         if (player1Turn)

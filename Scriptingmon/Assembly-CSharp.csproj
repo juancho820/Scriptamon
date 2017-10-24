@@ -54,6 +54,8 @@
      <Compile Include="Assets\BattleControllerLocal.cs" />
      <Compile Include="Assets\BattleControllerSingle.cs" />
      <Compile Include="Assets\Menu.cs" />
+     <None Include="Assets\2D Sky FREE\Demo\Scripts\Note.txt" />
+     <None Include="Assets\2D Sky FREE\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -74,6 +76,9 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="2D Sky FREE">
+ <HintPath>E:/GitHub/Scriptamon/Scriptingmon/Assets/2D Sky FREE/Demo/Scripts/2D Sky FREE.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
