@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class Scriptmon : ScriptableObject {
+public class Scriptmon : ScriptableObject
+{
 
     public float ATK;
     public float DEF;

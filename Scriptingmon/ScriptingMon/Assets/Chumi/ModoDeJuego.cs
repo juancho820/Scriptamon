@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ModoDeJuego : MonoBehaviour
 {
@@ -20,8 +21,20 @@ public class ModoDeJuego : MonoBehaviour
     [SerializeField]
     PokemonesDisponibles scriptingmonDisponibles;
 
-    bool asignoPlayer;
+    [SerializeField]
+    Image sprCharmander, sprPikachu, sprSquirtle;
+    [SerializeField]
+    Sprite charmanderListo, pikachuListo, squirtleListo;
 
+    Sprite charmanderOriginal, pikachuOriginal, squirtleOriginal;
+
+    bool asignoPlayer;
+    private void Start()
+    {
+        charmanderOriginal = sprCharmander.sprite;
+        pikachuOriginal = sprPikachu.sprite;
+        squirtleOriginal = sprSquirtle.sprite;
+    }
     public void SinglePlayer()
     {
         SceneManager.LoadScene("SinglePlayer");
@@ -45,7 +58,11 @@ public class ModoDeJuego : MonoBehaviour
         }
         else
         {
-            txtNombreValido.SetActive(true);
+            if (userInput != "")
+                txtNombreValido.SetActive(true);
+
+            if (asignoPlayer == false)
+                txtNombreValido.SetActive(true);
         }
         audioSource.Play();
     }
@@ -53,20 +70,28 @@ public class ModoDeJuego : MonoBehaviour
 
     public void AsignarCharmander()
     {
-        Debug.Log("Aja!");
         jugadoresActivos.scriptmonJugador2 = scriptingmonDisponibles.ScriptmonDisponibles[1];
+        sprCharmander.sprite = charmanderListo;
+        sprPikachu.sprite = pikachuOriginal;
+        sprSquirtle.sprite = squirtleOriginal;
         asignoPlayer = true;
     }
 
     public void AsignarPikachu()
     {
         jugadoresActivos.scriptmonJugador2 = scriptingmonDisponibles.ScriptmonDisponibles[0];
+        sprCharmander.sprite = charmanderOriginal;
+        sprPikachu.sprite = pikachuListo;
+        sprSquirtle.sprite = squirtleOriginal;
         asignoPlayer = true;
     }
 
     public void AsignarSquirtle()
     {
         jugadoresActivos.scriptmonJugador2 = scriptingmonDisponibles.ScriptmonDisponibles[2];
+        sprCharmander.sprite = charmanderOriginal;
+        sprPikachu.sprite = pikachuOriginal;
+        sprSquirtle.sprite = squirtleListo;
         asignoPlayer = true;
     }
 

@@ -28,6 +28,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     PokemonesDisponibles scriptingmonDisponibles;
 
+    [SerializeField]
+    Image sprCharmander, sprPikachu, sprSquirtle;
+    [SerializeField]
+    Sprite charmanderListo, pikachuListo, squirtleListo;
+
+    Sprite charmanderOriginal, pikachuOriginal, squirtleOriginal;
+
     bool asignoPlayer;
 
     private void Start()
@@ -36,6 +43,10 @@ public class MainMenu : MonoBehaviour
         posB = new Vector3 (0,0,0);
         newPosition = posA;
         txtNombreValido.SetActive(false);
+
+        charmanderOriginal = sprCharmander.sprite;
+        pikachuOriginal = sprPikachu.sprite;
+        squirtleOriginal = sprSquirtle.sprite;
     }
 
     void Update ()
@@ -44,7 +55,10 @@ public class MainMenu : MonoBehaviour
         {
             newPosition = posB;
         }
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Creditos");
+        }
         transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, 0.05f);
     }
 
@@ -67,7 +81,12 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            txtNombreValido.SetActive(true);
+            if (userInput != "")
+                txtNombreValido.SetActive(true);
+
+            if (asignoPlayer == false)
+                txtNombreValido.SetActive(true);
+
         }
 
     }
@@ -76,18 +95,27 @@ public class MainMenu : MonoBehaviour
     public void AsignarCharmander()
     {
         jugadoresActivos.scriptmonJugador1 = scriptingmonDisponibles.ScriptmonDisponibles[1];
+        sprCharmander.sprite = charmanderListo;
+        sprPikachu.sprite = pikachuOriginal;
+        sprSquirtle.sprite = squirtleOriginal;
         asignoPlayer = true;
     }
 
     public void AsignarPikachu()
     {
         jugadoresActivos.scriptmonJugador1 = scriptingmonDisponibles.ScriptmonDisponibles[0];
+        sprCharmander.sprite = charmanderOriginal;
+        sprPikachu.sprite = pikachuListo;
+        sprSquirtle.sprite = squirtleOriginal;
         asignoPlayer = true;
     }
 
     public void AsignarSquirtle()
     {
         jugadoresActivos.scriptmonJugador1 = scriptingmonDisponibles.ScriptmonDisponibles[2];
+        sprCharmander.sprite = charmanderOriginal;
+        sprPikachu.sprite = pikachuOriginal;
+        sprSquirtle.sprite = squirtleListo;
         asignoPlayer = true;
     }
 
