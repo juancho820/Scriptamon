@@ -26,6 +26,11 @@ public class ModoDeJuego : MonoBehaviour
     {
         SceneManager.LoadScene("SinglePlayer");
     }
+
+    public void Creditos()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
     public void Local ()
     {
         seleccionNombre2.transform.localPosition = Vector3.zero;
